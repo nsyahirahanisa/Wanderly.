@@ -1,0 +1,518 @@
+
+:root {
+    --clay: #B07D62;      
+    --sage: #8DAA91;      
+    --ocean: #78A1BB;     
+    --sand: #FBF8F1;      
+    --dark-text: #4A4A4A;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--sand);
+    color: var(--dark-text);
+}
+
+h1, h2, .navbar-brand, .section-title {
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar {
+    background-color: #B8A487; 
+    padding: 15px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff !important; 
+}
+
+.navbar-brand span {
+    color: #5d4a3a; 
+}
+
+.nav-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff !important; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #5d4a3a !important; 
+}
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+}
+
+.navbar-toggler-icon {
+    filter: invert(1) brightness(2); 
+}
+
+:root { --clay: #b07d62; }
+
+#heroCarousel {
+    margin-bottom: -50px; 
+    position: relative;
+    z-index: 1;
+}
+
+.search-container {
+    position: relative;
+    z-index: 10;
+    margin-top: -80px; 
+}
+
+.search-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.dest-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 300px;
+}
+
+.dest-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.dest-card:hover img { transform: scale(1.1); }
+
+.table-custom {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.hero-desc {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.search-container {
+    margin-top: -60px;
+}
+
+.search-box {
+    background: white;
+    padding: 40px;
+    border-radius: 0; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--clay);
+}
+
+.custom-input {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    padding: 10px 5px;
+}
+
+.custom-input:focus {
+    box-shadow: none;
+    border-bottom: 1px solid var(--clay);
+}
+
+.btn-wanderly {
+    background-color: var(--clay);
+    color: white;
+    border-radius: 0;
+    padding: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-wanderly:hover {
+    background-color: var(--dark-text);
+    color: white;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--clay);
+    margin-bottom: 20px;
+}
+
+.italic-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.experience-card {
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+}
+
+.experience-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.experience-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+}
+
+.experience-card:hover img {
+    transform: scale(1.1);
+}
+
+.experience-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+}
+
+.quote-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: 0;
+    color: var(--clay);
+    opacity: 0.3;
+}
+
+.testimonial-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+.testimonial-author {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--clay);
+}
+
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--dark-text);
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.category-title span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--clay);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+.dest-card {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.dest-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.dest-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.dest-info h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--clay);
+}
+
+.dest-info p {
+    font-size: 0.8rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark-text);
+}
+
+.dest-card:hover img {
+    transform: scale(1.1);
+}
+
+.dest-card:hover .dest-info {
+    background-color: var(--clay);
+}
+
+.dest-card:hover .dest-info h5, 
+.dest-card:hover .dest-info p {
+    color: white;
+}
+
+.filter-btn {
+    border: 1px solid var(--clay);
+    color: var(--clay);
+    border-radius: 0;
+    padding: 10px 25px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--clay);
+    color: white;
+}
+
+.badge-price {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--clay);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#btn-back-to-top {
+    transition: transform 0.3s ease;
+}
+
+#btn-back-to-top:hover {
+    transform: scale(1.1);
+    background-color: #5d4a3a; 
+}
+
+.card {
+    transition: transform 0.3s ease;
+    border-radius: 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    border-radius: 0;
+    height: 250px;
+    object-fit: cover;
+}
+
+.dest-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.dest-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.text-decoration-none {
+    text-decoration: none !important;
+}
+.dest-img-container {
+    border-radius: 40px; 
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.dest-img-container img {
+    width: 100%;
+    height: 600px; 
+    object-fit: cover;
+}
+
+.table td {
+    font-size: 0.95rem;
+}
+
+.ls-2 {
+    letter-spacing: 2px;
+}
+
+.package-banner {
+    height: 500px; 
+    width: 100%;
+    object-fit: cover; 
+}
+
+.calendar-card {
+    background: #fff;
+    border: 1px solid #f0ece2;
+    border-radius: 20px;
+    padding: 30px;
+    transition: 0.4s;
+    height: 100%;
+    text-align: center;
+}
+.calendar-card:hover {
+    transform: translateY(-10px);
+    border-color: #b07d62;
+    box-shadow: 0 15px 30px rgba(176, 125, 98, 0.1);
+}
+.calendar-icon {
+    width: 60px; height: 60px;
+    background: #f4f1ea; color: #b07d62;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; font-size: 1.5rem;
+}
+.btn-pdf {
+    background-color: #b07d62; color: white;
+    border-radius: 10px; padding: 10px 20px;
+    font-weight: 600; font-size: 0.85rem;
+    text-decoration: none; display: inline-block;
+    transition: 0.3s;
+}
+.btn-pdf:hover {
+    background-color: #5d4a3a; color: white;
+}
+
+.cert-box {
+    border: 1px solid #f0ece2;
+    border-radius: 15px;
+    background: #fff;
+    transition: 0.3s;
+    height: 100%;
+}
+.cert-box:hover {
+    border-color: #b07d62;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.3); 
+    border-radius: 50%;
+    padding: 20px;
+    background-size: 50%;
+}
+    .wanderly-footer {
+        background-color: #B8A487; 
+        color: #2b2b2b; 
+    }
+
+    .footer-brand {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        color: #fff; 
+        font-size: 2.2rem;
+    }
+    .footer-brand span { color: #5d4a3a; }
+
+    .footer-description {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #f8f1e9; 
+    }
+
+    .footer-column-title {
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 25px;
+    }
+
+    .footer-nav li { margin-bottom: 10px; }
+    .footer-nav a {
+        color: #2b2b2b;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+    .footer-nav a:hover { color: #fff; padding-left: 5px; }
+
+    .country-code {
+        font-size: 0.7rem;
+        color: #5d4a3a;
+        margin-left: 5px;
+        font-weight: bold;
+    }
+
+    .footer-socials a {
+        color: #fff;
+        font-size: 1.5rem;
+        margin-right: 20px;
+        transition: 0.3s;
+    }
+    .footer-socials a:hover { transform: translateY(-3px); color: #5d4a3a; }
+
+    .contact-info p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+        color: #2b2b2b;
+    }
+    .contact-info i { color: #fff; }
+
+    .copyright-text { font-size: 0.85rem; color: #5d4a3a; font-weight: 500; }
+    .technical-meta { font-size: 0.7rem; color: #f8f1e9; }
+
+    .footer-legal-links a {
+        color: #2b2b2b;
+        text-decoration: none;
+        font-size: 0.85rem;
+        margin-left: 20px;
+        font-weight: 500;
+    }
+    .footer-legal-links a:hover { color: #fff; }
