@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderly | Explore Freely</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .custom-input {
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+    #audioToggle {
+    position: fixed;
+    bottom: 100px; 
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: #b07d62; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001;
+    border: 1px solid #f0ece2;
+    transition: all 0.3s ease;
+}
+
+#audioToggle:hover {
+    transform: scale(1.1);
+    background-color: #b07d62;
+    color: white;
+}
+</style>
+<body>
+
+   <audio id="homeAmbient" loop>
+    <source src="sound.mp3" type="audio/mpeg">
+</audio>
+
+<div id="audioToggle" onclick="toggleAudio()" class="shadow-sm">
+    <i id="speakerIcon" class="bi bi-volume-mute"></i>
+</div> 
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Wanderly<span>.</span></a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="packages.html" id="pkgDropdown" role="button" data-bs-toggle="dropdown">
+        Packages
+    </a>
+    <ul class="dropdown-menu border-0 shadow-sm">
+        <li><a class="dropdown-item" href="packages.html?filter=local">Local Tour</a></li>
+        <li><a class="dropdown-item" href="packages.html?filter=international">International Tour</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="packages.html">All Packages</a></li>
+    </ul>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="destinations.html" id="destDropdown" role="button" data-bs-toggle="dropdown">
+        Destinations
+    </a>
+    <ul class="dropdown-menu border-0 shadow-sm">
+        <li><a class="dropdown-item" href="destinations.html?place=sabah">Sabah</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=langkawi">Kedah</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=perak">Perak</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="destinations.html?place=thailand">Thailand</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=china">China</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=japan">Japan</a></li>
+    </ul>
+</li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(as1.jpeg); background-size: cover; background-position: center; height: 80vh;">
+            <div class="container h-100 d-flex align-items-center justify-content-center">
+                <div class="text-center text-white">
+                    <p class="subtitle text-white border-white">Find Beauty in Every Journey</p>
+                    <h1 class="display-3 fw-bold text-white" style="font-family: 'Playfair Display', serif;">Explore Freely.</h1>
+                    <p class="lead">Creating memories through culture, food, and human connection.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(ok1.jpeg); background-size: cover; background-position: center; height: 80vh;">
+            <div class="container h-100 d-flex align-items-center justify-content-center">
+                <div class="text-center text-white">
+                    <p class="subtitle text-white border-white">Tradition Meets Neon</p>
+                    <h1 class="display-3 fw-bold text-white" style="font-family: 'Playfair Display', serif;">Wander Deeply.</h1>
+                    <p class="lead">Immerse yourself in the authentic beauty of Japan.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(bk2.jpeg); background-size: cover; background-position: center; height: 80vh;">
+            <div class="container h-100 d-flex align-items-center justify-content-center">
+                <div class="text-center text-white">
+                    <p class="subtitle text-white border-white">Land of Smiles</p>
+                    <h1 class="display-3 fw-bold text-white" style="font-family: 'Playfair Display', serif;">Truly Enriching.</h1>
+                    <p class="lead">Experience the vibrant culture and flavors of Thailand.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</header>
+
+
+<div class="container search-container">
+    <div class="search-box">
+    <form class="row g-3 align-items-end">
+        <div class="col-md-4">
+            <label class="form-label">Where to next?</label>
+            <select id="destinationInput" class="form-select custom-input">
+                <option value="" selected disabled>Select Destination</option>
+                <optgroup label="Malaysia">
+                    <option value="destinations.html?place=sabah">Sabah</option>
+                    <option value="destinations.html?place=langkawi">Kedah</option>
+                    <option value="destinations.html?place=perak">Perak</option>
+                </optgroup>
+                <optgroup label="International">
+                    <option value="destinations.html?place=thailand">Thailand</option>
+                    <option value="destinations.html?place=china">China</option>
+                    <option value="destinations.html?place=japan">Japan</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label">Experience Type</label>
+            <select id="typeInput" class="form-select custom-input">
+                <option value="all">All Experiences</option>
+                <option value="Culture">Culture & Food</option>
+                <option value="Nature">Nature & Sea</option>
+                <option value="Relaxing">Relaxing Retreat</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label">When?</label>
+            <input type="month" class="form-control custom-input">
+        </div>
+
+        <div class="col-md-2">
+            <button type="button" onclick="goToDestination()" class="btn btn-wanderly w-100">Find Trips</button>
+        </div>
+    </div>
+    </form>
+</div>
+
+<section class="container my-5 py-5 text-center" style="background-color: #f4f1ea;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="section-title">The Wanderly Story</h2>
+            <p class="text-muted italic-text">"It's not about the destination, but the joy of getting lost and finding something beautiful along the way."</p>
+        </div>
+    </div>
+</section>
+
+<section class="container my-5 py-5">
+    <div class="text-center mb-5">
+        <p class="subtitle" style="color: var(--clay);">Curated Destinations</p>
+        <h2 class="section-title">Where Your Story Begins</h2>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-12 mb-4">
+            <h4 class="category-title">Local Gems <span>— Malaysia</span></h4>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="destinations.html?place=sabah" class="text-decoration-none">
+            <div class="dest-card">
+                <img src="sabah.webp" alt="Sabah">
+                <div class="dest-info">
+                    <h5>Sabah</h5>
+                    <p>The Land Below the Wind</p>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="destinations.html?place=langkawi" class="text-decoration-none">
+            <div class="dest-card">
+                <img src="langkawi.jpg" alt="Kedah">
+                <div class="dest-info">
+                    <h5>Kedah</h5>
+                    <p>Azure Waters & Legends</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="destinations.html?place=perak" class="text-decoration-none">
+            <div class="dest-card">
+                <img src="perak.jpeg" alt="Perak">
+                <div class="dest-info">
+                    <h5>Perak</h5>
+                    <p>Heritage & Limestone Hills</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h4 class="category-title">Overseas Adventures <span>— Beyond Borders</span></h4>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="destinations.html?place=thailand" class="text-decoration-none">
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80" alt="Thailand">
+                <div class="dest-info">
+                    <h5>Thailand</h5>
+                    <p>The Land of Smiles</p>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="destinations.html?place=china" class="text-decoration-none">
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=600&q=80" alt="China">
+                <div class="dest-info">
+                    <h5>China</h5>
+                    <p>Ancient Paths & Future Cities</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="destinations.html?place=japan" class="text-decoration-none">
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80" alt="Japan">
+                <div class="dest-info">
+                    <h5>Japan</h5>
+                    <p>Tradition Meets Neon</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+
+    <section class="py-5" style="background-color: #f4f1ea;"> <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5">
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-0 shadow-sm" alt="Journey">
+            </div>
+            <div class="col-md-7 ps-md-5">
+                <h2 class="section-title mt-4">Why Travel with Wanderly?</h2>
+                <p class="lead italic-text" style="font-size: 1.1rem;">"We believe travel isn't about how many places you visit, but how deeply those places touch your heart."</p>
+                
+                <div class="row mt-4">
+                    <div class="col-sm-6 mb-3">
+                        <h6 class="fw-bold" style="color: var(--clay);">Curated Stays</h6>
+                        <p class="small">More than just hotels and resort we select stays with soul, character, and stories worth remembering.</p>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <h6 class="fw-bold" style="color: var(--clay);">Slow Itineraries</h6>
+                        <p class="small">No rushed schedules or exhausting checklists. Take your time, savour your coffee, and travel at your own pace.</p>
+                    </div>
+                </div>
+                <a href="packages.html" class="btn btn-wanderly px-4">Explore Our Full Packages</a>
+            </div>
+        </div>
+    </div>
+</section>
+</section>
+
+<section class="py-5" style="background-color: #f4f1ea;"> <div class="container">
+    <div class="text-center mb-5">
+        <p class="subtitle" style="color: #b07d62;">Availability</p>
+        <h2 class="section-title">Upcoming Group Trips 2026</h2>
+        <p class="text-muted">A quick glance at our upcoming scheduled departures.</p>
+    </div>
+
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover align-middle mb-0" style="background-color: #fff; border: 1px solid #f0ece2;">
+            <thead style="background-color: #f4f1ea; color: #5d4a3a;">
+                <tr>
+                    <th class="p-3">Month</th>
+                    <th class="p-3">Destination</th>
+                    <th class="p-3">Type</th>
+                    <th class="p-3">Price From</th>
+                    <th class="p-3 text-center">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p-3 fw-bold">March 2026</td>
+                    <td class="p-3">Japan: Sakura Golden Route</td>
+                    <td class="p-3">Overseas</td>
+                    <td class="p-3">RM 9,687</td>
+                    <td class="p-3 text-center"><span class="badge rounded-pill bg-danger">Filling Fast</span></td>
+                </tr>
+                <tr>
+                    <td class="p-3 fw-bold">May 2026</td>
+                    <td class="p-3">Thailand: Island, Beach & Marine Escape</td>
+                    <td class="p-3">Overseas</td>
+                    <td class="p-3">RM 2,500</td>
+                    <td class="p-3 text-center"><span class="badge rounded-pill bg-success">Available</span></td>
+                </tr>
+                <tr>
+                    <td class="p-3 fw-bold">June 2026</td>
+                    <td class="p-3">Sabah: Island & Beach Relaxation</td>
+                    <td class="p-3">Local Gem</td>
+                    <td class="p-3">RM 3,000</td>
+                    <td class="p-3 text-center"><span class="badge rounded-pill bg-success">Available</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="py-5" style="background-color: #faf9f6;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <p class="subtitle" style="color: #b07d62;">Plan Ahead</p>
+            <h2 class="section-title">Travel Calendars</h2>
+            <p class="text-muted">Explore our yearly travel calendars to help you plan your trips based on scheduled tours, school holidays, and seasonal highlights.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="calendar-card">
+                    <div class="calendar-icon"><i class="bi bi-calendar3"></i></div>
+                    <h5 class="fw-bold">Trip Calendar 2026</h5>
+                    <p class="small text-muted mb-4">A complete overview of group trips scheduled throughout 2026.</p>
+                    <a href="c2026.pdf" class="btn-pdf" target="_blank" download><i class="bi bi-download me-2"></i>Download PDF</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="calendar-card">
+                    <div class="calendar-icon"><i class="bi bi-calendar-check"></i></div>
+                    <h5 class="fw-bold">Trip Calendar 2027</h5>
+                    <p class="small text-muted mb-4">A travel planning guide aligned with school holidays, ideal for families.</p>
+                    <a href="c2027.pdf" class="btn-pdf" target="_blank" download><i class="bi bi-download me-2"></i>Download PDF</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="calendar-card">
+                    <div class="calendar-icon"><i class="bi bi-calendar-heart"></i></div>
+                    <h5 class="fw-bold">Trip Calendar 2028</h5>
+                    <p class="small text-muted mb-4">A curated group travel plan, focusing on the best travel seasons and popular destinations.</p>
+                    <a href="c2028.pdf" class="btn-pdf" target="_blank" download><i class="bi bi-download me-2"></i>Download PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5" style="background-color: #f4f1ea;"> 
+    <div class="container">
+        <div class="text-center mb-5">
+            <p class="subtitle" style="color: #b07d62;">Trust & Safety</p>
+            <h2 class="section-title">Official Recognition</h2>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-5">
+                <div class="cert-box d-flex align-items-center p-4 bg-white shadow-sm" style="border-radius: 15px;">
+                    <div class="flex-shrink-0">
+                        <i class="bi bi-patch-check-fill text-success" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h6 class="fw-bold mb-1">MOTAC License 🇲🇾</h6>
+                        <p class="small text-muted mb-2">Proudly recognized for our significant contribution to the Malaysian tourism industry. 🏛️</p>
+                        <a href="certi1.pdf" target="_blank" class="text-decoration-none small fw-bold" style="color: #b07d62;">View Certificate <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="cert-box d-flex align-items-center p-4 bg-white shadow-sm" style="border-radius: 15px;">
+                    <div class="flex-shrink-0">
+                        <i class="bi bi-trophy-fill text-warning" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h6 class="fw-bold mb-1">Top Agent Award 🏆</h6>
+                        <p class="small text-muted mb-2">Honored for exceptional achievements in travel services on October 6, 2025. ⭐</p>
+                        <a href="certi2.pdf" target="_blank" class="text-decoration-none small fw-bold" style="color: #b07d62;">View Certificate <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-white">
+    <div class="container text-center">
+        <div class="quote-icon mb-4">"</div>
+        <p class="testimonial-text">"Wanderly reminded me why I love to travel. It wasn't about checking off a list, but about the quiet moments and the people I met."</p>
+        <span class="testimonial-author">— Sarah J., Solo Traveler</span>
+    </div>
+</section>
+
+<footer class="wanderly-footer pt-5 pb-3">
+    <div class="container pt-4">
+        <div class="row g-4 mb-5">
+            
+            <div class="col-lg-4 col-md-12">
+                <h3 class="footer-brand mb-3">Wanderly<span>.</span></h3>
+                <p class="footer-description mb-4">
+                    Explore the world at your own pace, creating memories beyond destinations. 
+                    We craft seamless and personalized journeys globally, ensuring heartfelt 
+                    expertise in every trip you take with us.
+                </p>
+                
+                <div class="mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 2px; color: #5d4a3a;">Follow Wanderly Channel</h6>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6">
+    <h6 class="footer-column-title">Visit</h6>
+    <ul class="list-unstyled footer-nav">
+        <li><a href="destinations.html?place=china">China <span class="country-code">CN</span></a></li>
+        <li><a href="destinations.html?place=japan">Japan <span class="country-code">JP</span></a></li>
+        <li><a href="destinations.html?place=thailand">Thailand <span class="country-code">TH</span></a></li>
+        <li><a href="destinations.html?place=langkawi">Kedah <span class="country-code">MY</span></a></li>
+        <li><a href="destinations.html?place=perak">Perak <span class="country-code">MY</span></a></li>
+        <li><a href="destinations.html?place=sabah">Sabah <span class="country-code">MY</span></a></li>
+    </ul>
+</div>
+
+            <div class="col-lg-2 col-md-4 col-6">
+                <h6 class="footer-column-title">Explore</h6>
+                <ul class="list-unstyled footer-nav">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <h6 class="footer-column-title">Contact Us</h6>
+                <div class="contact-info">
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Kuala Lumpur, Malaysia</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i> +60 2786 7555 (Office)</p>
+                    <p><i class="bi bi-whatsapp me-2"></i> +60 12 345 6789 (Tours)</p>
+                    <p class="mt-3 small" style="color: #5d4a3a;">
+                        <i class="bi bi-clock-fill me-2"></i> Monday-Friday: 9:00am-6:00pm<br>
+                        <span class="ms-4">Saturday: 9:30am-1:30pm</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <hr style="border-color: rgba(0,0,0,0.1);">
+
+        <div class="row align-items-center py-3">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="copyright-text mb-1">Copyright © 2026 Wanderly. All Rights Reserved.</p>
+                <div class="technical-meta">
+                    Last Update: Jan 07, 2026 | Recommended: Chrome/Edge (1920x1080)
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                <ul class="list-inline mb-0 footer-legal-links">
+                    <li class="list-inline-item"><a href="term.html" target="_blank">Terms & Conditions</a></li>
+                    <li class="list-inline-item"><a href="about.html">Our Story</a></li>
+                    <li class="list-inline-item"><a href="contact.html#faq-section">FAQ</a>
+</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>  
+</footer>
+
+<button type="button" class="btn shadow" id="btn-back-to-top" style="position: fixed; bottom: 30px; right: 30px; display: none; width: 50px; height: 50px; z-index: 1000; border-radius: 50%; background-color: #b07d62; color: white; border: none;">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    
+function goToDestination() {
+    const destination = document.getElementById("destinationInput").value;
+
+    if (destination) {
+        window.location.href = destination;
+    } else {
+        window.location.href = "packages.html";
+    }
+}
+    const audio = document.getElementById("homeAmbient");
+    const icon = document.getElementById("speakerIcon");
+    
+    audio.volume = 0.2;
+
+    function toggleAudio() {
+        if (audio.paused) {
+            audio.play();
+            icon.classList.replace("bi-volume-mute", "bi-volume-up");
+        } else {
+            audio.pause();
+            icon.classList.replace("bi-volume-up", "bi-volume-mute");
+        }
+    }
+
+    document.body.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play();
+            icon.classList.replace("bi-volume-mute", "bi-volume-up");
+        }
+    }, { once: true });
+
+    let mybutton = document.getElementById("btn-back-to-top");
+
+    window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    };
+
+    mybutton.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" 
+        });
+    };
+</script>
+
+</body>
+</html>

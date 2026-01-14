@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Packages | Wanderly</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .badge-price {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: 700;
+            color: #333;
+            font-size: 0.9rem;
+        }
+        .btn-outline-details {
+            border: 1px solid #d2d2d2;
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-outline-details:hover {
+            background-color: #fdfaf7;
+            border-color: var(--clay);
+            color: var(--clay);
+        }
+        .filter-btn.active {
+            background-color: var(--clay) !important;
+            color: white !important;
+            border-color: var(--clay) !important;
+        }
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Wanderly<span>.</span></a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="packages.html" id="pkgDropdown" role="button" data-bs-toggle="dropdown">
+        Packages
+    </a>
+    <ul class="dropdown-menu border-0 shadow-sm">
+        <li><a class="dropdown-item" href="packages.html?filter=local">Local Tour</a></li>
+        <li><a class="dropdown-item" href="packages.html?filter=international">International Tour</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="packages.html">All Packages</a></li>
+    </ul>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="destinations.html" id="destDropdown" role="button" data-bs-toggle="dropdown">
+        Destinations
+    </a>
+    <ul class="dropdown-menu border-0 shadow-sm">
+        <li><a class="dropdown-item" href="destinations.html?place=sabah">Sabah</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=langkawi">Kedah</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=perak">Perak</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="destinations.html?place=thailand">Thailand</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=china">China</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=japan">Japan</a></li>
+    </ul>
+</li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="py-5 text-center" style="background-color: #f4f1ea; border-bottom: 1px solid #e0ddd5;">
+    <div class="container">
+        <p class="subtitle" style="color: var(--clay); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Curated Journeys</p>
+        <h1 class="section-title fw-bold" style="font-family: 'Playfair Display'; font-size: 3rem;">Explore Our Packages</h1>
+    </div>
+    </header>
+
+    <div class="container my-5 text-center">
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+        <button id="btn-all" class="btn btn-outline-secondary filter-btn px-4 active" onclick="filterPackages('all', this)">ALL</button>
+        <button id="btn-local" class="btn btn-outline-secondary filter-btn px-4" onclick="filterPackages('local', this)">LOCAL GEMS</button>
+        <button id="btn-international" class="btn btn-outline-secondary filter-btn px-4" onclick="filterPackages('international', this)">OVERSEAS</button>
+    </div>
+</div>
+
+<div class="container mb-5 pb-5">
+    <div class="row g-4" id="package-grid">
+        
+        <div class="col-md-4 package-item local sabah">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="kk1.jpeg" class="card-img-top" alt="Sabah">
+                    <span class="badge-price shadow-sm">RM 2,000</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Sabah: Nature & Wildlife Adventure</h5>
+                    <p class="small text-muted mb-4">Kota Kinabalu & Kinabatangan</p>
+                    
+                    <a href="sabahkk.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="sabahkk.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>              
+                  </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item local sabah">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="ss1.jpeg" class="card-img-top" alt="Sabah">
+                    <span class="badge-price shadow-sm">RM 3,000</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Sabah: Island & Beach Relaxation</h5>
+                    <p class="small text-muted mb-4">Sipadan & Semporna</p>
+                    
+                    <a href="sisem.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="sisem.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>               
+                 </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item local sabah">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="mp1.jpeg" class="card-img-top" alt="Sabah">
+                    <span class="badge-price shadow-sm">RM 1,800</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Sabah: Mountain & Adventure</h5>
+                    <p class="small text-muted mb-4">Mount Kinabalu & Poring Hot Springs</p>
+                    
+                    <a href="mountkk.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="mountkk.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>               
+                 </div>
+            </div>
+        </div>
+
+         <div class="col-md-4 package-item local perak">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="hm1.jpeg" class="card-img-top" alt="Perak">
+                    <span class="badge-price shadow-sm">RM 900</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Perak: Adventure & Glamping Experience</h5>
+                    <p class="small text-muted mb-4">Himalaya Camp</p>
+                    
+                    <a href="himalaya.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="himalaya.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>                
+                </div>
+            </div>
+        </div>
+
+         <div class="col-md-4 package-item local perak">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="pk1.jpeg" class="card-img-top" alt="Perak">
+                    <span class="badge-price shadow-sm">RM 700</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Perak: Pangkor Beach Bliss Gateway</h5>
+                    <p class="small text-muted mb-4">Pangkor</p>
+                    
+                    <a href="pangkor.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="pangkor.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>                
+                </div>
+            </div>
+        </div>
+
+        
+         <div class="col-md-4 package-item local perak">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="bl1.jpeg" class="card-img-top" alt="Perak">
+                    <span class="badge-price shadow-sm">RM 1,800</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Perak: Royal Belum Rainforest Discovery</h5>
+                    <p class="small text-muted mb-4">Royal Belum</p>
+                    
+                    <a href="royal.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="royal.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>                
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item local langkawi">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="cb1.jpeg" class="card-img-top" alt="Kedah">
+                    <span class="badge-price shadow-sm">RM 350</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Kedah: Sky Above Langkawi</h5>
+                    <p class="small text-muted mb-4">Langkawi</p>
+                    
+                    <a href="langkawi.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="langkawi.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>               
+                 </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item local langkawi">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="ih1.jpeg" class="card-img-top" alt="Kedah">
+                    <span class="badge-price shadow-sm">RM 35</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Kedah: Langkawi Island Hopping</h5>
+                    <p class="small text-muted mb-4">Pulau Dayang Bunting, Pulau Beras Basah & Surrounding Island</p>
+                    
+                    <a href="hopping.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="hopping.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>                
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item local langkawi">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="gj1.jpeg" class="card-img-top" alt="Kedah">
+                    <span class="badge-price shadow-sm">RM 1200</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Kedah: Heritage & Highland Reetreat</h5>
+                    <p class="small text-muted mb-4">Gunung Jerai, Sungai Batu & Lembah Bujang</p>
+                    
+                    <a href="gunungjerai.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="gunungjerai.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>          
+                  </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item international china">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="hb1.jpeg" class="card-img-top" alt="China Ski">
+                    <span class="badge-price shadow-sm">RM 3,800</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">China Ski Adventure</h5>
+                    <p class="small text-muted mb-4">Harbin & Yabuli </p>
+                    
+                    <a href="china-ski.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="china-ski.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>              
+                  </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item international china">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="nc1.jpeg" class="card-img-top" alt="China">
+                    <span class="badge-price shadow-sm">RM 2,500</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">China: Nature & Culture</h5>
+                    <p class="small text-muted mb-4">Guilin & Yangshuo</p>
+                    
+                    <a href="nature.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="nature.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>                
+                </div>
+            </div>
+        </div>
+        
+         <div class="col-md-4 package-item international china">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="c1.jpeg" class="card-img-top" alt="china">
+                    <span class="badge-price shadow-sm">RM 3,366</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Classic China</h5>
+                    <p class="small text-muted mb-4">Beijing & Shanghai</p>
+                    
+                    <a href="classic.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="classic.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>                
+                </div>
+            </div>
+        </div>
+    
+         <div class="col-md-4 package-item international thailand">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="cm1.jpeg" class="card-img-top" alt="Thailand">
+                    <span class="badge-price shadow-sm">RM 2,300</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Thailand: Culture, Nature & Heritage</h5>
+                    <p class="small text-muted mb-4">Chiang Mai</p>
+                    
+                    <a href="chiangmai.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="chiangmai.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>               
+                 </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item international thailand">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="bk1.jpeg" class="card-img-top" alt="Thailand">
+                    <span class="badge-price shadow-sm">RM 2,200</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Thailand: City, Culture & Lifestyle</h5>
+                    <p class="small text-muted mb-4">Bangkok</p>
+                    
+                    <a href="bangkok.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    <a href="bangkok.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>               
+                 </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item international thailand">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="as1.jpeg" class="card-img-top" alt="Thailand">
+                    <span class="badge-price shadow-sm">RM 2,800</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Thailand: Island, Beach & Marine Escape</h5>
+                    <p class="small text-muted mb-4">Andaman Sea (Phuket/Krabi)</p>
+                    
+                    <a href="Andaman.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="Andaman.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>                
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item international japan">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="ok1.jpeg" class="card-img-top" alt="Japan">
+                    <span class="badge-price shadow-sm">RM 3,000</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Japan: Okinawa Ocean Escape</h5>
+                    <p class="small text-muted mb-4">Okinawa</p>
+                    
+                    <a href="okinawa.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="okinawa.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>               
+                 </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item international japan">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="ky1.jpeg" class="card-img-top" alt="Japan">
+                    <span class="badge-price shadow-sm">RM 9,687</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Japan: Sakura Golden Route</h5>
+                    <p class="small text-muted mb-4">Kyoto</p>
+                    
+                    <a href="kyoto.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="kyoto.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>              
+                  </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 package-item international japan">
+            <div class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                <div class="position-relative">
+                    <img src="shu1.jpeg" class="card-img-top" alt="Japan">
+                    <span class="badge-price shadow-sm">RM 7,500</span>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-1">Japan: Kyushu Winter Train</h5>
+                    <p class="small text-muted mb-4">Kyushu</p>
+                    
+                    <a href="kyushu.html" class="btn btn-outline-details w-100 mb-2 py-2" target="_blank">See More Details</a>
+                    
+                    <a href="kyushu.html#book" class="btn btn-wanderly w-100 py-2">Book Now</a>              
+                  </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="wanderly-footer pt-5 pb-3">
+    <div class="container pt-4">
+        <div class="row g-4 mb-5">
+            
+            <div class="col-lg-4 col-md-12">
+                <h3 class="footer-brand mb-3">Wanderly<span>.</span></h3>
+                <p class="footer-description mb-4">
+                    Explore the world at your own pace, creating memories beyond destinations. 
+                    We craft seamless and personalized journeys globally, ensuring heartfelt 
+                    expertise in every trip you take with us.
+                </p>
+                
+                <div class="mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 2px; color: #5d4a3a;">Follow Wanderly Channel</h6>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6">
+    <h6 class="footer-column-title">Visit</h6>
+    <ul class="list-unstyled footer-nav">
+        <li><a href="destinations.html?place=china">China <span class="country-code">CN</span></a></li>
+        <li><a href="destinations.html?place=japan">Japan <span class="country-code">JP</span></a></li>
+        <li><a href="destinations.html?place=thailand">Thailand <span class="country-code">TH</span></a></li>
+        <li><a href="destinations.html?place=langkawi">Kedah <span class="country-code">MY</span></a></li>
+        <li><a href="destinations.html?place=perak">Perak <span class="country-code">MY</span></a></li>
+        <li><a href="destinations.html?place=sabah">Sabah <span class="country-code">MY</span></a></li>
+    </ul>
+</div>
+
+            <div class="col-lg-2 col-md-4 col-6">
+                <h6 class="footer-column-title">Explore</h6>
+                <ul class="list-unstyled footer-nav">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <h6 class="footer-column-title">Contact Us</h6>
+                <div class="contact-info">
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Kuala Lumpur, Malaysia</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i> +60 2786 7555 (Office)</p>
+                    <p><i class="bi bi-whatsapp me-2"></i> +60 12 345 6789 (Tours)</p>
+                    <p class="mt-3 small" style="color: #5d4a3a;">
+                        <i class="bi bi-clock-fill me-2"></i> Monday-Friday: 9:00am-6:00pm<br>
+                        <span class="ms-4">Saturday: 9:30am-1:30pm</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <hr style="border-color: rgba(0,0,0,0.1);">
+
+        <div class="row align-items-center py-3">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="copyright-text mb-1">Copyright © 2026 Wanderly. All Rights Reserved.</p>
+                <div class="technical-meta">
+                    Last Update: Jan 07, 2026 | Recommended: Chrome/Edge (1920x1080)
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                <ul class="list-inline mb-0 footer-legal-links">
+                    <li class="list-inline-item"><a href="term.html">Terms & Conditions</a></li>
+                    <li class="list-inline-item"><a href="about.html">Our Story</a></li>
+                    <li class="list-inline-item"><a href="contact.html#faq-section">FAQ</a>
+</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button type="button" class="btn shadow" id="btn-back-to-top" style="position: fixed; bottom: 30px; right: 30px; display: none; width: 50px; height: 50px; z-index: 1000; border-radius: 50%; background-color: #b07d62; color: white; border: none;">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<script>
+    function filterPackages(category, element) {
+        const items = document.querySelectorAll('.package-item');
+        const buttons = document.querySelectorAll('.filter-btn');
+
+        items.forEach(item => {
+            if (category === 'all' || item.classList.contains(category)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        if (element) {
+            element.classList.add('active');
+        } else {
+            const activeBtn = document.getElementById('btn-' + category);
+            if(activeBtn) activeBtn.classList.add('active');
+        }
+    }
+
+    window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterParam = urlParams.get('filter'); 
+
+    if (filterParam) {
+        filterPackages(filterParam, null);
+        
+        if (filterParam !== 'all' && filterParam !== 'local' && filterParam !== 'international') {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        }
+    } else {
+        filterPackages('all', document.getElementById('btn-all'));
+    }
+};
+
+    mybutton.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" 
+        });
+    };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

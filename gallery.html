@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery & Feedback | Wanderly</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body { background-color: #fcf9f4; font-family: 'Montserrat', sans-serif; color: #444; overflow-x: hidden; }
+
+        .video-landscape-card { transition: 0.4s; margin-bottom: 20px; cursor: pointer; } 
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; 
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 15px 35px rgba(150, 102, 77, 0.1);
+        }
+        .video-wrapper video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0.85; transition: 0.5s;
+        }
+        .video-landscape-card:hover video { opacity: 1; transform: scale(1.08); }
+        
+        .play-overlay {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60px; height: 60px; background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.5rem; transition: 0.3s; pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .video-landscape-card:hover .play-overlay {
+            background: #96664d; border-color: #96664d; transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .gallery-img {
+            border-radius: 20px; width: 100%; height: 300px;
+            object-fit: cover; transition: 0.4s; cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .gallery-img:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(150, 102, 77, 0.2); }
+
+        .feedback-section { background-color: #fff; border-top: 1px solid #f0ece2; border-bottom: 1px solid #f0ece2; }
+        .feedback-card {
+            background: #fcf9f4; border-radius: 25px; padding: 40px;
+            height: 100%; border: 1px solid #f0ece2; transition: 0.3s;
+        }
+        .feedback-card:hover { border-color: #d4a373; transform: translateY(-5px); }
+        .quote-icon { font-size: 2.5rem; color: #d4a373; opacity: 0.3; display: block; margin-bottom: 15px; }
+        .stars { color: #ffc107; margin-bottom: 15px; }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Wanderly<span>.</span></a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="packages.html" id="pkgDropdown" role="button" data-bs-toggle="dropdown">
+        Packages
+    </a>
+    <ul class="dropdown-menu border-0 shadow-sm">
+        <li><a class="dropdown-item" href="packages.html?filter=local">Local Tour</a></li>
+        <li><a class="dropdown-item" href="packages.html?filter=international">International Tour</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="packages.html">All Packages</a></li>
+    </ul>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="destinations.html" id="destDropdown" role="button" data-bs-toggle="dropdown">
+        Destinations
+    </a>
+    <ul class="dropdown-menu border-0 shadow-sm">
+        <li><a class="dropdown-item" href="destinations.html?place=sabah">Sabah</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=langkawi">Kedah</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=perak">Perak</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="destinations.html?place=thailand">Thailand</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=china">China</a></li>
+        <li><a class="dropdown-item" href="destinations.html?place=japan">Japan</a></li>
+    </ul>
+</li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="text-center py-5 mt-4">
+    <span class="text-uppercase mb-2 d-block" style="letter-spacing: 5px; color: #d4a373; font-weight: 700; font-size: 0.8rem;">Stories in Motion</span>
+    <h1 style="font-family: 'Playfair Display', serif; font-size: 3.5rem;">The Gallery</h1>
+</header>
+
+<section class="container my-5 pb-5">
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="video-landscape-card" onclick="openVideoModal('vcina.mp4', 'From Ancient Traditions to Modern Cities')">
+                <div class="video-wrapper">
+                    <video muted loop onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="vcina.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-overlay"><i class="bi bi-play-fill"></i></div>
+                </div>
+                <div class="mt-3">
+                    <h5 class="mb-1" style="font-family: 'Playfair Display', serif;">From Ancient Traditions to Modern Cities</h5>
+                    <p class="small text-muted text-uppercase" style="letter-spacing: 1px;">Harbin, China</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="video-landscape-card" onclick="openVideoModal('vsabah.MP4', 'Adventure, Culture & Paradise')">
+                <div class="video-wrapper">
+                    <video muted loop onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="vsabah.MP4" type="video/mp4">
+                    </video>
+                    <div class="play-overlay"><i class="bi bi-play-fill"></i></div>
+                </div>
+                <div class="mt-3">
+                    <h5 class="mb-1" style="font-family: 'Playfair Display', serif;">Adventure, Culture & Paradise</h5>
+                    <p class="small text-muted text-uppercase" style="letter-spacing: 1px;">Sabah, Malaysia</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="video-landscape-card" onclick="openVideoModal('vperak.mp4', 'Nature, Heritage & Adventure')">
+                <div class="video-wrapper">
+                    <video muted loop onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="vperak.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-overlay"><i class="bi bi-play-fill"></i></div>
+                </div>
+                <div class="mt-3">
+                    <h5 class="mb-1" style="font-family: 'Playfair Display', serif;">Nature, Heritage & Adventure</h5>
+                    <p class="small text-muted text-uppercase" style="letter-spacing: 1px;">Perak, Malaysia</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="video-landscape-card" onclick="openVideoModal('vjapan.mp4', 'Where Tradition Meets Innovation')">
+                <div class="video-wrapper">
+                    <video muted loop onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="vjapan.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-overlay"><i class="bi bi-play-fill"></i></div>
+                </div>
+                <div class="mt-3">
+                    <h5 class="mb-1" style="font-family: 'Playfair Display', serif;">Where Tradition Meets Innovation</h5>
+                    <p class="small text-muted text-uppercase" style="letter-spacing: 1px;">Japan</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="video-landscape-card" onclick="openVideoModal('vkedah.mp4', 'From Paddy Fields to Paradise Islands')">
+                <div class="video-wrapper">
+                    <video muted loop onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="vkedah.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-overlay"><i class="bi bi-play-fill"></i></div>
+                </div>
+                <div class="mt-3">
+                    <h5 class="mb-1" style="font-family: 'Playfair Display', serif;">From Paddy Fields to Paradise Islands</h5>
+                    <p class="small text-muted text-uppercase" style="letter-spacing: 1px;">Kedah, Malaysia</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="video-landscape-card" onclick="openVideoModal('vthailand.mp4', 'Land of Culture, Smiles & Adventure. ')">
+                <div class="video-wrapper">
+                    <video muted loop onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="vthailand.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-overlay"><i class="bi bi-play-fill"></i></div>
+                </div>
+                <div class="mt-3">
+                    <h5 class="mb-1" style="font-family: 'Playfair Display', serif;">Land of Culture, Smiles & Adventure. </h5>
+                    <p class="small text-muted text-uppercase" style="letter-spacing: 1px;">Thailand</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="videoPopoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title text-white px-3 pt-2" id="modalVideoTitle" style="font-family: 'Playfair Display', serif;">Destination Video</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="ratio ratio-16x9">
+                    <video id="mainVideoPlayer" controls>
+                        <source src="" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="container my-5 py-5">
+    <div class="text-center mb-5">
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Captured Moments</h3>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-4 col-6"><img src="t1.jpg" class="gallery-img" alt="Gallery"></div>
+        <div class="col-md-4 col-6"><img src="t2.jpg" class="gallery-img" alt="Gallery"></div>
+        <div class="col-md-4 col-12"><img src="t3.jpg" class="gallery-img" alt="Gallery"></div>
+        <div class="col-md-6 col-12"><img src="t4.jpg" class="gallery-img" alt="Gallery"></div>
+        <div class="col-md-6 col-12"><img src="t5.jpg" class="gallery-img" alt="Gallery"></div>
+    </div>
+</section>
+
+<section class="feedback-section py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <span class="text-uppercase small fw-bold" style="color: #d4a373; letter-spacing: 2px;">Feedback</span>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.8rem;" class="mt-2">What Our Wanderers Say</h2>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="feedback-card">
+                    <i class="bi bi-quote quote-icon"></i>
+                    <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <p class="mb-4" style="font-style: italic; line-height: 1.8;">"An unforgettable journey. Wanderly allowed us to slow down and truly appreciate the beauty of Sabah. Everything was so well-organized!"</p>
+                    <h6 class="mb-0 fw-bold">Aisyah Razif</h6>
+                    <small class="text-muted">Kinabatangan River Tour</small>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feedback-card">
+                    <i class="bi bi-quote quote-icon"></i>
+                    <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <p class="mb-4" style="font-style: italic; line-height: 1.8;">"I've traveled with many agencies, but Wanderly is different. They focus on the heart and soul of the place."</p>
+                    <h6 class="mb-0 fw-bold">Lee Chong Wei</h6>
+                    <small class="text-muted">China Ski Adventure</small>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feedback-card">
+                    <i class="bi bi-quote quote-icon"></i>
+                    <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <p class="mb-4" style="font-style: italic; line-height: 1.8;">"The snorkeling at Sipadan was a dream. The team took care of every detail."</p>
+                    <h6 class="mb-0 fw-bold">Nurul Farhah</h6>
+                    <small class="text-muted">Sipadan Diving Package</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="wanderly-footer pt-5 pb-3">
+    <div class="container pt-4">
+        <div class="row g-4 mb-5">
+            
+            <div class="col-lg-4 col-md-12">
+                <h3 class="footer-brand mb-3">Wanderly<span>.</span></h3>
+                <p class="footer-description mb-4">
+                    Explore the world at your own pace, creating memories beyond destinations. 
+                    We craft seamless and personalized journeys globally, ensuring heartfelt 
+                    expertise in every trip you take with us.
+                </p>
+                
+                <div class="mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 2px; color: #5d4a3a;">Follow Wanderly Channel</h6>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6">
+    <h6 class="footer-column-title">Visit</h6>
+    <ul class="list-unstyled footer-nav">
+        <li><a href="destinations.html?place=china">China <span class="country-code">CN</span></a></li>
+        <li><a href="destinations.html?place=japan">Japan <span class="country-code">JP</span></a></li>
+        <li><a href="destinations.html?place=thailand">Thailand <span class="country-code">TH</span></a></li>
+        <li><a href="destinations.html?place=langkawi">Kedah <span class="country-code">MY</span></a></li>
+        <li><a href="destinations.html?place=perak">Perak <span class="country-code">MY</span></a></li>
+        <li><a href="destinations.html?place=sabah">Sabah <span class="country-code">MY</span></a></li>
+    </ul>
+</div>
+
+            <div class="col-lg-2 col-md-4 col-6">
+                <h6 class="footer-column-title">Explore</h6>
+                <ul class="list-unstyled footer-nav">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <h6 class="footer-column-title">Contact Us</h6>
+                <div class="contact-info">
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Kuala Lumpur, Malaysia</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i> +60 2786 7555 (Office)</p>
+                    <p><i class="bi bi-whatsapp me-2"></i> +60 12 345 6789 (Tours)</p>
+                    <p class="mt-3 small" style="color: #5d4a3a;">
+                        <i class="bi bi-clock-fill me-2"></i> Monday-Friday: 9:00am-6:00pm<br>
+                        <span class="ms-4">Saturday: 9:30am-1:30pm</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <hr style="border-color: rgba(0,0,0,0.1);">
+
+        <div class="row align-items-center py-3">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="copyright-text mb-1">Copyright © 2026 Wanderly. All Rights Reserved.</p>
+                <div class="technical-meta">
+                    Last Update: Jan 07, 2026 | Recommended: Chrome/Edge (1920x1080)
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                <ul class="list-inline mb-0 footer-legal-links">
+                    <li class="list-inline-item"><a href="term.html">Terms & Conditions</a></li>
+                    <li class="list-inline-item"><a href="about.html">Our Story</a></li>
+                    <li class="list-inline-item"><a href="contact.html#faq-section">FAQ</a>
+</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<button type="button" class="btn shadow" id="btn-back-to-top" style="position: fixed; bottom: 30px; right: 30px; display: none; width: 50px; height: 50px; z-index: 1000; border-radius: 50%; background-color: #b07d62; color: white; border: none;">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function openVideoModal(videoSrc, title) {
+        var myModal = new bootstrap.Modal(document.getElementById('videoPopoutModal'));
+        var videoPlayer = document.getElementById('mainVideoPlayer');
+        var modalTitle = document.getElementById('modalVideoTitle');
+
+        modalTitle.innerText = title;
+        videoPlayer.src = videoSrc;
+        videoPlayer.load();
+        myModal.show();
+
+        document.getElementById('videoPopoutModal').addEventListener('hidden.bs.modal', function () {
+            videoPlayer.pause();
+            videoPlayer.src = "";
+        });
+    }
+    let mybutton = document.getElementById("btn-back-to-top");
+
+    window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    };
+
+    mybutton.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" 
+        });
+    };
+</script>
+
+</body>
+</html>
